@@ -4,6 +4,9 @@ using System.Text.Json;
 
 namespace Prescription_Management_API.Controllers
 {
+    /// <summary>
+    /// Provides operations for managing Patients.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class PatientsController : ControllerBase

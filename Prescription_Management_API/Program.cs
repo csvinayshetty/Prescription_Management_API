@@ -32,11 +32,18 @@ builder.Services.AddSwaggerGen(swaggerGen =>
             Email = "vinay.kumar@viturahealth.com"
         }
     });
+});
 
-    // Include XML comments (optional)
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //swaggerGen.IncludeXmlComments(xmlPath);
+// Add services to the container
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder
+            .AllowAnyOrigin()  // Allow requests from any origin
+            .AllowAnyMethod()  // Allow all HTTP methods
+            .AllowAnyHeader(); // Allow all headers
+    });
 });
 
 var app = builder.Build();
@@ -52,6 +59,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Configure the HTTP request pipeline
+app.UseCors("AllowAll"); // Place this after UseRouting() but before UseAuthorization()
+app.UseCors(builder =>
+    builder.WithOrigins("http://localhost:7046")
+           .AllowAnyHeader()
+           .AllowAnyMethod());
 
 app.UseAuthorization();
 

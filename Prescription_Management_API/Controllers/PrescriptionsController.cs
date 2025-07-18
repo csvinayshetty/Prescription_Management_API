@@ -70,13 +70,6 @@ namespace Prescription_Management_API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<Prescription> Post([FromBody] Prescription prescription)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return BadRequest(ModelState);
-            //}
-
-            //var createdPrescription = _prescriptionService.CreatePrescription(prescription);
-            //return CreatedAtAction(nameof(Get), new { id = createdPrescription.Id }, createdPrescription);
 
             try
             {
