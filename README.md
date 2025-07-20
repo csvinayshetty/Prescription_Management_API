@@ -3,7 +3,10 @@
 _Backend (.NET Web API)_ :
 
                           Navigate to backend directory:
-                            give a command -    cd Prescription_Management_API
+                            Open the terminal (cmd.exe) and give a command -    cd Prescription_Management_API
+                                                                                dotnet build
+                                                                                dotnet run
+                                                  
                               API will run at : https://localhost:7046
                               Swagger :         https://localhost:7046/swagger/index.html
 
